@@ -9,3 +9,16 @@
 <h2> {{'Hola!'.repeat(4)}} </h2>
 <p>La suma de 3+3 es {{ 3+3}}</p>
 <p>Hola soy {{name}} y tengo {{age}} años.</p>
+<hr>
+<img [src]="image" [alt]="AltImage1">
+<input type="text" [value]="name"> <!-- enlazo la variable a una propiedad de un elemento  -->
+<button [disabled]="disable"> click here! </button>
+<hr>
+
+<div class="profile-container">
+  <h2>Tu perfil</h2>
+  <img [src]="person.avatar" alt="" class="profile-image">
+  <p>Nombre: {{person.name}} </p>
+  <P>Edad:{{person.age}} </P>
+</div>
+
