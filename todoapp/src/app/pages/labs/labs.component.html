@@ -1,3 +1,4 @@
+<div class="main-container">
 <h1>Hola, este es m primer proyecto de Angular  </h1>
 <h2>{{welcome}}</h2>
 <ul>
@@ -20,5 +21,21 @@
   <img [src]="person.avatar" alt="" class="profile-image">
   <p>Nombre: {{person.name}} </p>
   <P>Edad:{{person.age}} </P>
+</div>
+
+<hr>
+<h1>Event binding</h1>
+<button (click)="clickhandler()" class="main-button"> Click here! </button>
+<button (dblclick)="clickhandler()" class="main-button">Double click me!</button>
+<h1>change</h1>
+<input type="number" name="User age" id="" [value]="person.age" (change)="changeHandler($event)">
+<hr>
+<h1>Keydown</h1>
+<input type="text" name="" id="" (keydown)="keydownHandler($event)">
+<h1>Keydown usando atajos de teclado (shift+t)</h1>
+<input type="text" name="" id="" (keydown.shift.t)="keyDownShitT()">
+
+
+
 </div>
 

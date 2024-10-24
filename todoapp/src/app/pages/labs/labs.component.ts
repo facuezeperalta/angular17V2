@@ -26,5 +26,18 @@ export class LabsComponent {
     age: 29,
     avatar: "https://i.pinimg.com/736x/c0/74/9b/c0749b7cc401421662ae901ec8f9f660.jpg"
   }
+  clickhandler(){
+    alert("Botón pulsado")
+  }
+  changeHandler(event:Event){
+    console.log(event)
+  }
+  keydownHandler(event:KeyboardEvent){
+    const input = event.target as HTMLInputElement;
+    console.log(input.value);
+  }
+  keyDownShitT(){
+    alert("Se pulso shift + t");
 
+  }
 }
