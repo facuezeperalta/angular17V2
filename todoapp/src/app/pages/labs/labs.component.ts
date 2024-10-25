@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -15,7 +15,7 @@ export class LabsComponent {
     'Crear el proyeecto',
     'Crear componentes'
   ]
-  name = "Eze";
+  name = signal("Eze");
   age = 29;
   disable = true;
   image = "https://http2.mlstatic.com/D_NQ_NP_940349-MLA78300890977_082024-O.webp";
@@ -30,7 +30,9 @@ export class LabsComponent {
     alert("Botón pulsado")
   }
   changeHandler(event:Event){
-    console.log(event)
+    const input = event.target as HTMLInputElement;
+    const newValue = input.value;
+    this.name.set(newValue) /* aca modifico la señal */
   }
   keydownHandler(event:KeyboardEvent){
     const input = event.target as HTMLInputElement;
@@ -40,4 +42,5 @@ export class LabsComponent {
     alert("Se pulso shift + t");
 
   }
+
 }

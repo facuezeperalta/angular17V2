@@ -9,10 +9,10 @@
 <hr>
 <h2> {{'Hola!'.repeat(4)}} </h2>
 <p>La suma de 3+3 es {{ 3+3}}</p>
-<p>Hola soy {{name}} y tengo {{age}} años.</p>
+<p>Hola soy {{name()}} y tengo {{age}} años.</p>
 <hr>
 <img [src]="image" [alt]="AltImage1">
-<input type="text" [value]="name"> <!-- enlazo la variable a una propiedad de un elemento  -->
+<input type="text" [value]="name()"> <!-- enlazo la variable a una propiedad de un elemento  -->
 <button [disabled]="disable"> click here! </button>
 <hr>
 
@@ -35,7 +35,10 @@
 <h1>Keydown usando atajos de teclado (shift+t)</h1>
 <input type="text" name="" id="" (keydown.shift.t)="keyDownShitT()">
 
-
-
+<hr>
+<h1>Signals</h1>
+<input type="text" name="" id="" [value]="name()" (change)="changeHandler($event)">
+<p>Nombre: {{name()}}</p>
+<p>Nombre: {{name()}}</p>
 </div>
 
