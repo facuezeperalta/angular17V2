@@ -18,9 +18,9 @@
 
 <div class="profile-container">
   <h2>Tu perfil</h2>
-  <img [src]="person.avatar" alt="" class="profile-image">
-  <p>Nombre: {{person.name}} </p>
-  <P>Edad:{{person.age}} </P>
+  <img [src]="person().avatar" alt="" class="profile-image">
+  <p>Nombre: {{person().name}} </p>
+  <P>Edad:{{person().age}} </P>
 </div>
 
 <hr>
@@ -28,7 +28,7 @@
 <button (click)="clickhandler()" class="main-button"> Click here! </button>
 <button (dblclick)="clickhandler()" class="main-button">Double click me!</button>
 <h1>change</h1>
-<input type="number" name="User age" id="" [value]="person.age" (change)="changeHandler($event)">
+<input type="number" name="User age" id="" [value]="person().age" (change)="changeHandler($event)">
 <hr>
 <h1>Keydown</h1>
 <input type="text" name="" id="" (keydown)="keydownHandler($event)">
@@ -53,5 +53,19 @@
 <div *ngIf="1!==1">
   <p>Contenido con Ng if</p>
 </div>
+<hr>
+<div>
+  <h2>Mostrar en función si el Nombre es: Facu</h2>
+  <input type="text" name="" id="" placeholder="Ingrese su nombre" (change)="changeHandler($event)">
+  <p *ngIf="name() === 'Facu'">Hola, binevenido {{name()}}</p>
+</div>
+
+<div>
+  <h2>NG if con objetos</h2>
+  <p *ngIf="person().name == 'Facundo' && person().age >= 18"; else elseblock > Soy {{person().name}} y tengo {{person().age}} años.</p>
+</div>
+<ng-template #elseblock>
+  <p>El usuario no cumple con la condiciones</p>
+</ng-template>
 </div>
 
