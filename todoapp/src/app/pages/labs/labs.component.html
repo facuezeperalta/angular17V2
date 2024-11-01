@@ -67,5 +67,20 @@
 <ng-template #elseblock>
   <p>El usuario no cumple con la condiciones</p>
 </ng-template>
+<hr>
+<h1>NG switch</h1>
+<p>Ingrese el nombre de usuario: </p>
+<input type="text" [value]="person().name" (change)="changeName($event)">
+<div [ngSwitch]="person().name">
+  <p *ngSwitchCase="'facundo'">Usuario: {{person().name}}, Bienvenido!</p>
+  <p *ngSwitchCase="'jorge'" >Usuario: {{person().name}}, Bievenido!</p>
+  <p *ngSwitchCase="'roberto'">Usuario: {{person().name}}, Bienvendio!</p>
+  <p *ngSwitchCase="'sofia'">Usuario: {{person().name}}, Bienvendio!</p>
+  <p *ngSwitchDefault>Usuario no encontrado.</p>
+</div>
+<hr>
+<h2>Controlando inputs</h2>
+  <input type="color" [formControl]="colorCtrl">
+  <p>Valor del color: {{ colorCtrl.value }}</p>
 </div>
 

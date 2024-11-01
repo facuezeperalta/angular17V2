@@ -1,14 +1,16 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import {FormControl, ReactiveFormsModule } from '@angular/forms'
 @Component({
   selector: 'app-labs',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './labs.component.html',
   styleUrl: './labs.component.scss'
 })
 export class LabsComponent {
+  colorCtrl = new FormControl();
+
   welcome = 'Hola,Facu';
   tasks =signal( [
     'Instalar Angular CLI',
@@ -42,6 +44,28 @@ export class LabsComponent {
   keyDownShitT(){
     alert("Se pulso shift + t");
 
+  }
+  changeAge(event:Event){
+    const input = event.target as HTMLInputElement;
+    const newValue = input.value;
+    this.person.update(prevState =>{
+      return{
+        ...prevState,
+        age: parseInt(newValue),
+      }
+    })
+
+
+  }
+  changeName(event:Event){
+    const input = event.target as HTMLInputElement;
+    const newValue = input.value;
+    this.person.update(prevState =>{
+      return{
+        ...prevState,
+        name: newValue
+      }
+    })
   }
 
 }
