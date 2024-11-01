@@ -1,5 +1,6 @@
 import { Component,signal,Signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {Task} from '../../models/task.model'
 
 @Component({
   selector: 'app-home',
@@ -9,23 +10,60 @@ import { CommonModule } from '@angular/common';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  tasks = signal( [
-    'Instalar Angular CLI',
+  tasks = signal<Task[]>( [
+    {
+      id: Date.now(),
+      title: 'Comprar Nikon Z6III',
+      completed: false
+    },
+    {
+      id: Date.now(),
+      title: 'Comprar pan integral',
+      completed:false
+    }
+   /*  'Instalar Angular CLI',
     'Crear el proyeecto',
     'Crear componentes',
     'Trabajar con signals es bueno',
     'Armar presupuestos',
-    'Armar una estratégia de Marketing'
+    'Armar una estratégia de Marketing' */
   ])
 
   //agregando una tarea
   changeHandler(event:Event){
     const input = event.target as HTMLInputElement;
     const newTask = input.value;
-    this.tasks.update((tasks) => [...tasks,newTask]);
+    this.addTask(newTask);
     input.value = '';
   }
+
+  addTask(title:string){
+    const newTask = {
+      id: Date.now(),
+      title,
+      completed: false
+    }
+    this.tasks.update((tasks) => [...tasks,newTask])
+  }
+
+
   deleteTask(index: Number){
     this.tasks.update((tasks) => tasks.filter((task, position) => position !== index )); //filtro dejando por fuera el que coincide en la posición.
+  }
+
+
+  /* aca nos basamos en el patron de no mutar el array.  */
+  updateTask(index: Number){
+    this.tasks.update((tasks) =>{
+      return tasks.map((task,position) =>{
+        if(position === index){
+          return{
+            ...task,
+            completed: !task.completed
+          }
+        }
+        return task
+      })
+    })
   }
 }
