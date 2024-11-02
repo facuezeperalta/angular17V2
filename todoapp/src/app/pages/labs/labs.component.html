@@ -82,5 +82,19 @@
 <h2>Controlando inputs</h2>
   <input type="color" [formControl]="colorCtrl">
   <p>Valor del color: {{ colorCtrl.value }}</p>
+  <hr>
+  <h2>Clases</h2>
+  <input type="text">
+  <hr>
+  <h2>Agregando clases</h2>
+  <p>
+    <input type="text" [formControl]="nameCtrl">
+    <span class="message-error">Nombre inválido </span>
+  </p>
+  <p>
+    <input type="text" name="" id="">
+  </p>
+
+
 </div>
 
