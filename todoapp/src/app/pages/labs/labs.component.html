@@ -86,15 +86,17 @@
   <h2>Clases</h2>
   <input type="text">
   <hr>
-  <h2>Agregando clases</h2>
-  <p>
-    <input type="text" [formControl]="nameCtrl">
-    <span class="message-error">Nombre inválido </span>
-  </p>
-  <p>
-    <input type="text" name="" id="">
-  </p>
 
+  <h1>Estilos al modo angular</h1>
+  <input type="number" name="" id="" [formControl]="widthCtrl">
+  <span class="box" [style.width.px]="widthCtrl.value"></span>
+
+  <hr>
+  <h1>Agregando clases</h1>
+  <!-- activar clases de manera dinámica -->
+
+  <p>Ingresa tu nombre</p>
+  <input type="text" name="" id="">
 
 </div>
 

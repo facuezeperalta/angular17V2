@@ -68,6 +68,11 @@ export class LabsComponent {
     })
   }
 
+widthCtrl = new FormControl(20,{
+  nonNullable : true,
+})
+nameCtrl = new FormControl('facu',{
 
+})
 
 }
