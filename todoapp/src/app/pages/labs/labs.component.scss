@@ -44,12 +44,14 @@
 .message-error{
   background-color: red;
   color: whitesmoke;
-  display: block;
-  width: 200px;
-  margin-top: 10px;
-  padding: 10px;
+  opacity: 0;
+  transition: all linear 0.3s;
 }
 
+.message-error.show{
+  opacity: 1;
+
+}
 .box{
   background-color: lightcoral;
   height: 10px;

@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {FormControl, ReactiveFormsModule } from '@angular/forms'
+import {FormControl, ReactiveFormsModule, Validators } from '@angular/forms'
 @Component({
   selector: 'app-labs',
   standalone: true,
@@ -72,6 +72,11 @@ widthCtrl = new FormControl(20,{
   nonNullable : true,
 })
 nameCtrl = new FormControl('facu',{
+  nonNullable: true,
+  validators :  [
+    Validators.required,
+    Validators.minLength(3)
+  ]
 
 })
 

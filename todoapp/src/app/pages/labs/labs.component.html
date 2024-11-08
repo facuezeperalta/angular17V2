@@ -94,9 +94,19 @@
   <hr>
   <h1>Agregando clases</h1>
   <!-- activar clases de manera dinámica -->
-
   <p>Ingresa tu nombre</p>
-  <input type="text" name="" id="">
-
+  <p>
+    <input type="text" name="" id="" [formControl]="nameCtrl"> <br>
+    <span class="message-error" [class.show]="nameCtrl.invalid && nameCtrl.touched">Nombre inválido</span>
+  </p>
+  <p>Texto para mostrar que el formulario no se corre.</p>
+<hr>
+<h2>Probando cambiar la clase segun la condición</h2>
+<p>Ingresa tu DNI: </p>
+<p>
+  <input type="text" name="" id=""><br>
+  <span>Numero inválido</span>
+  <span>Número válido</span>
+</p>
 </div>
 
