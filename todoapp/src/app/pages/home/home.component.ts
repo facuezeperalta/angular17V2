@@ -121,10 +121,4 @@ export class HomeComponent {
       })
 
       }
-
-
-
-
-
-
 }
