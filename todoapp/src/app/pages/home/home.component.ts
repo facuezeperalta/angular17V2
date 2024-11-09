@@ -1,7 +1,8 @@
-import { Component,signal,Signal } from '@angular/core';
+import { Component,input,signal,Signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {Task} from '../../models/task.model'
 import {FormControl, ReactiveFormsModule, Validators } from '@angular/forms'
+import { retryWhen } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -86,6 +87,44 @@ export class HomeComponent {
     }
 
   }
+  updateTaskEditingMode(index: number){
+    if(this.tasks()[index].completed) return; /* evitamos que una tarea completada se pueda editar  */
+    this.tasks.update(prevState =>{
+      return prevState.map((task,position) =>{
+        if (position === index){
+          return{
+            ...task,
+            editing: true /* cambio el valor a true de la tarea seleccionada */
+          }
+        }
+        return {
+          ...task,
+          editing: false,
+        }
+      })
+    })
+
+    }
+    updateTextEditingMode(index: number, event: Event){
+      const input = event.target as HTMLInputElement;
+      this.tasks.update(prevState =>{
+        return prevState.map((task,position) =>{
+          if (position === index){
+            return{
+              ...task,
+              title: input.value, /* Tomo el valor del texto */
+              editing: false/* salgo del modo edicion */
+            }
+          }
+          return task;
+        })
+      })
+
+      }
+
+
+
+
 
 
 }
